@@ -45,7 +45,7 @@ Persistence: Last search query saved in local storage.
 
 Deployment
 
-Deployed on [Vercel/Netlify]: <your-live-demo-link>
+Deployed on Vercel: https://movie-explorer-app-ez5y.vercel.app/
 
 Technologies
 
