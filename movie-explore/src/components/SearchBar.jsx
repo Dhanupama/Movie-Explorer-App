@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 
+// This component represents a search bar where users can input their search query
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
     onSearch(query);
   };
+
+  // This function is called when the user clicks the search button
 
   return (
     <div>

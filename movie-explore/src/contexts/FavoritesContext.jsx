@@ -2,6 +2,8 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const FavoritesContext = createContext();
 
+// This context will manage the favorites list
+
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
@@ -20,7 +22,10 @@ export const FavoritesProvider = ({ children }) => {
     const newFavorites = favorites.filter((fav) => fav.id !== movieId);
     setFavorites(newFavorites);
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
+
   };
+
+  // Check if a movie is in the favorites list
 
   const isFavorite = (movieId) => favorites.some((fav) => fav.id === movieId);
 

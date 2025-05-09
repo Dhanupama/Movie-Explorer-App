@@ -3,6 +3,8 @@ import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/st
 
 export const ThemeContext = createContext();
 
+// This context will manage the theme (light/dark mode) of the application
+
 export const ThemeProvider = ({ children }) => {
   const [mode, setMode] = useState('light');
 
@@ -19,7 +21,7 @@ export const ThemeProvider = ({ children }) => {
   const toggleTheme = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
-
+/// The toggleTheme function will switch between light and dark mode
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme }}>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>

@@ -4,12 +4,14 @@ import axios from 'axios';
 import { Container, Typography, CircularProgress, Button } from '@mui/material';
 import { FavoritesContext } from '../contexts/FavoritesContext';
 
+// This component fetches and displays detailed information about a specific movie
+
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const { favorites, addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
-
+// This component fetches and displays detailed information about a specific movie
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -26,6 +28,8 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [id]);
 
+// This effect fetches movie details when the component mounts or when the movie ID changes
+  
   if (loading) {
     return <CircularProgress />;
   }
@@ -33,7 +37,7 @@ const MovieDetails = () => {
   if (!movie) {
     return <Typography variant="h6">Movie not found</Typography>;
   }
-
+// This component fetches and displays detailed information about a specific movie
   const { title, overview, genres, release_date, vote_average, videos, credits } = movie;
   const trailer = videos.results.find((video) => video.type === 'Trailer');
   const cast = credits.cast.slice(0, 5);
@@ -45,7 +49,7 @@ const MovieDetails = () => {
       addFavorite(movie);
     }
   };
-
+// This function handles adding or removing a movie from the favorites list
   return (
     <Container>
       <Typography variant="h4">{title}</Typography>

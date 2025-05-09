@@ -4,6 +4,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import MovieCard from '../components/MovieCard';
 import SearchBar from '../components/SearchBar';
 
+// home page
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -21,7 +23,7 @@ const Home = () => {
       fetchTrending(1);
     }
   }, []);
-
+// Fetch trending movies on initial load
   const fetchMovies = async (searchQuery, pageNum) => {
     try {
       const response = await axios.get(
@@ -34,7 +36,7 @@ const Home = () => {
       console.error('Error fetching movies:', error);
     }
   };
-
+// Fetch movies based on search query
   const fetchTrending = async (pageNum) => {
     try {
       const response = await axios.get(
@@ -72,6 +74,7 @@ const Home = () => {
       fetchTrending(page + 1);
     }
   };
+  // Handle search input change
 
   return (
     <div>
